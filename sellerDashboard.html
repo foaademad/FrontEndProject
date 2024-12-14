@@ -88,104 +88,73 @@
                             <th>Title</th>
                             <th>Author</th>
                             <th>Price</th>
-                            <th>Stock</th>
+                            <th>Category</th>
+                            <th>Images</th>
+                            <th>Status</th>
+                            <th>Pages</th>
                             <th>Actions</th>
                         </tr>
+                        
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
+                    <tbody id="productTableBody">
+                        <!-- Dynamic products will be inserted here -->
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-primary mb-3">Add New Product</button>
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal" id="addProductButton">Add New Product</button>
         </section>
+        
+        <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addProductForm">
+                            <div class="mb-3">
+                                <label for="productTitle">Title</label>
+                                <input type="text" id="productTitle" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productAuthor">Author</label>
+                                <input type="text" id="productAuthor" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productPrice">Price</label>
+                                <input type="number" id="productPrice" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productCategory">Category</label>
+                                <input type="text" id="productCategory" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productImage">Image URL</label>
+                                <input type="text" id="productImage" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productImage2">Back Image URL</label>
+                                <input type="text" id="productImage2" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productStatus">Status</label>
+                                <input type="text" id="productStatus" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productPages">Pages</label>
+                                <input type="number" id="productPages" class="form-control" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="saveButton">Save</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for adding a new product -->
+        
+        
 
         <!-- Orders Section -->
         <section id="orders" class="mb-5">
@@ -325,6 +294,6 @@
         </section>
 
     </div>
-
+    <script src="./js/sellerDashbouard.js"></script>
 </body>
 </html>
