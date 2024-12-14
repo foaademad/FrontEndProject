@@ -159,3 +159,32 @@ document.querySelector('form').addEventListener('submit', function (event) {
         window.location.href = '../home.html'; // استبدل login.html برابط الصفحة المناسبة
     } 
 });
+
+
+// ====================================
+// check if loggin as a seller 
+document.addEventListener('DOMContentLoaded', function () {
+  // جلب بيانات المستخدم من localStorage
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  // التحقق من وجود المستخدم ومن قيمة الدور
+  if (currentUser && currentUser.role === 'seller') {
+    const profileLinks = document.getElementById('profileLinks');
+
+    // التحقق إذا كان الزر موجود مسبقًا لتجنب التكرار
+    if (!document.getElementById('sellerDashboard')) {
+      // إنشاء عنصر الزر
+      const sellerDashboardLink = document.createElement('li');
+      const sellerDashboardAnchor = document.createElement('a');
+      sellerDashboardAnchor.href = '../sellerDashboard.html'; // استبدل "#" برابط لوحة التحكم
+      sellerDashboardAnchor.id = 'sellerDashboard';
+      sellerDashboardAnchor.textContent = 'Seller Dashboard';
+      sellerDashboardAnchor.className= 'btn-seller';
+
+      // إضافة الزر إلى القائمة
+      sellerDashboardLink.appendChild(sellerDashboardAnchor);
+      profileLinks.appendChild(sellerDashboardLink); // إضافة الزر إلى القائمة
+    }
+  }
+});
+
